@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060606" />
+  <meta name="description" content="Experiência 3D promocional conceitual inspirada no Porsche 911 Turbo S, com animação controlada pelo scroll." />
+  <title>911 Turbo S — 3D Scroll Experience</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="loader" class="loader" aria-live="polite">
+    <div class="loader__word">911</div>
+    <div class="loader__bar"><span id="loader-bar"></span></div>
+    <p>carregando experiência 3D</p>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Voltar ao início">PORSCHE <span>CONCEPT</span></a>
+    <div class="topbar__meta">
+      <span>911 TURBO S</span>
+      <span id="progress-label">00%</span>
+    </div>
+  </header>
+
+  <aside class="scroll-rail" aria-hidden="true">
+    <span class="scroll-rail__line"></span>
+    <span id="scroll-dot" class="scroll-rail__dot"></span>
+  </aside>
+
+  <main id="top">
+    <div id="scene-wrap" class="scene-wrap" aria-hidden="true">
+      <canvas id="scene"></canvas>
+      <div class="vignette"></div>
+      <div class="floor-glow"></div>
+    </div>
+
+    <section class="chapter chapter--hero" data-progress="0.03">
+      <div class="chapter__eyebrow">THE ICON, REFRAMED</div>
+      <h1>911<br><span>TURBO S</span></h1>
+      <p class="chapter__copy">Role a página. O carro não sai de cena. Cada trecho reposiciona câmera, rotação e zoom para revelar um novo detalhe.</p>
+      <div class="scroll-hint"><span></span>SCROLL TO DRIVE</div>
+    </section>
+
+    <section class="chapter chapter--right" data-progress="0.19">
+      <div class="chapter__number">01</div>
+      <div class="chapter__eyebrow">PERFORMANCE</div>
+      <h2>711 <small>cv</small></h2>
+      <p class="chapter__copy">Força brutal com entrega imediata. A câmera fecha a distância enquanto a carroceria gira para o perfil.</p>
+      <div class="spec-line"><span>0–100 km/h</span><strong>2,5 s</strong></div>
+    </section>
+
+    <section class="chapter chapter--left" data-progress="0.36">
+      <div class="chapter__number">02</div>
+      <div class="chapter__eyebrow">REAR SIGNATURE</div>
+      <h2>322 <small>km/h</small></h2>
+      <p class="chapter__copy">A traseira toma o quadro. A faixa luminosa vira uma linha vermelha suspensa no escuro.</p>
+      <div class="spec-line"><span>tração</span><strong>integral</strong></div>
+    </section>
+
+    <section class="chapter chapter--right" data-progress="0.53">
+      <div class="chapter__number">03</div>
+      <div class="chapter__eyebrow">CONTACT PATCH</div>
+      <h2>WIDE<br><span>STANCE</span></h2>
+      <p class="chapter__copy">O zoom mergulha nas rodas traseiras. Pneu, disco e aro entram em primeiro plano sem trocar de cena.</p>
+      <div class="spec-line"><span>foco visual</span><strong>rodas + freios</strong></div>
+    </section>
+
+    <section class="chapter chapter--left" data-progress="0.70">
+      <div class="chapter__number">04</div>
+      <div class="chapter__eyebrow">AERODYNAMICS</div>
+      <h2>ACTIVE<br><span>AERO</span></h2>
+      <p class="chapter__copy">A rotação desacelera por um instante para destacar teto, para-lamas e aerofólio. Depois, o giro volta a ganhar ritmo.</p>
+      <div class="spec-line"><span>silhueta</span><strong>baixo arrasto</strong></div>
+    </section>
+
+    <section class="chapter chapter--right" data-progress="0.86">
+      <div class="chapter__number">05</div>
+      <div class="chapter__eyebrow">360° PRESENCE</div>
+      <h2>EVERY<br><span>ANGLE</span></h2>
+      <p class="chapter__copy">A câmera se afasta outra vez e devolve o carro inteiro ao centro. O scroll fecha a volta completa.</p>
+      <div class="spec-line"><span>interação</span><strong>scroll-driven</strong></div>
+    </section>
+
+    <section class="chapter chapter--final" data-progress="0.98">
+      <div class="chapter__eyebrow">END OF THE LAP</div>
+      <h2>911<br><span>TURBO S</span></h2>
+      <p class="chapter__copy">Uma landing page conceitual em Three.js, pronta para publicação estática na Vercel.</p>
+      <a class="cta" href="#top">REPLAY EXPERIENCE</a>
+      <p class="legal">Protótipo independente e não oficial. Porsche e 911 são marcas de seus respectivos titulares. Modelo 3D original estilizado criado para esta demonstração.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
