@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat model_parts/part-* | base64 --decode > /tmp/porsche-911-user.glb
+          cat model_parts/part-* | base64 --decode | gzip -dc > /tmp/porsche-911-user.glb
           test -s /tmp/porsche-911-user.glb
           test "$(head -c 4 /tmp/porsche-911-user.glb)" = "glTF"
           mkdir -p assets porsche-scroll-3d/assets
