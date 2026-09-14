@@ -27,16 +27,13 @@ jobs:
           cp /tmp/porsche-911-user.glb assets/porsche-911-user.glb
           cp /tmp/porsche-911-user.glb porsche-scroll-3d/assets/porsche-911-user.glb
 
-      - name: Commit generated model
+      - name: Commit generated model and clean transfer files
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/porsche-911-user.glb porsche-scroll-3d/assets/porsche-911-user.glb
-          if git diff --cached --quiet; then
-            echo "Model already up to date."
-            exit 0
-          fi
-          git commit -m "Add uploaded 3D car model"
+          git rm -r --ignore-unmatch model_parts .github/workflows/build-user-glb.yml
+          git commit -m "Replace 3D car model with uploaded GLB"
           git push
